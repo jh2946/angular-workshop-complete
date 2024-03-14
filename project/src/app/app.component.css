@@ -1,0 +1,31 @@
+/*  navbar styles  */
+header.navbar {
+    background-color: #ddf;
+    display: flex;
+    height: 60px;
+    padding: 0 5vw;
+    border-bottom: 2px black solid;
+}
+header.navbar a.navlink {
+    display: flex;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+    padding: 15px;
+    margin: 0 5px;
+    justify-content: center;
+    align-items: center;
+}
+header.navbar a.navlink.right-sep {
+    margin-left: auto;
+}
+header.navbar a.navlink * {
+    margin: 0;
+}
+header.navbar a.navlink:hover {
+    background-color: #00f3;
+}
+div.content {
+    padding: 100px 15vw;
+}
