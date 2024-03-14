@@ -5,6 +5,7 @@
 The "list" portion of the to-do list. Elements are displayed as rectangles with a title and description. Checkboxes can be toggled to mark the task (checked) as done or not done (unchecked).
 
 Web path: `/`
+
 Angular route `path` property: `''`
 
 Intended functionalities (not implemented yet):
@@ -17,6 +18,7 @@ Intended functionalities (not implemented yet):
 A placeholder just to show the simplest form of routing.
 
 Web path: `/about`
+
 Angular route `path` property: `'about'`
 
 ### `history_homework.html`
@@ -24,6 +26,7 @@ Angular route `path` property: `'about'`
 Each task will have an edit description page. Hence, each task will have its own route. This is the example edit description page for "History Homework".
 
 Web path: `/edit/{index}`
+
 Angular route `path` property: `'edit/:index'`
 
 Intended functionalities (not implemented yet):
