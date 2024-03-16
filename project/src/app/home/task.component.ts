@@ -10,10 +10,32 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class TaskComponent {
     filter: "all" | "active" | "done" = "all";
-    allItems = [
-        { "title": "Sweep the floor", "done": true }, // todo: fix this being opposite if done is initially true
-        { "title": "History Homework", "description": "ABCSS Prelim 2022 Paper 1 Timed Practice", "done": false },
-    ]
+    allItems: { title: string, description?: string, done: boolean }[] = [];
+    localStorage = document.defaultView?.localStorage;
+    // todo: create a constructor to get allitems from localstorage. if it does not exist, create one
+    private loadItems() {
+        try {
+            const items = localStorage.getItem("items");
+            if (items) {
+                this.allItems = JSON.parse(items);
+            } else {
+                this.allItems = [
+                    { "title": "Sweep the floor", "done": true },
+                    { "title": "History Homework", "description": "ABCSS Prelim 2022 Paper 1 Timed Practice", "done": false },
+                ]
+            }
+        } catch (error) {
+            console.error(error);
+            this.allItems = [
+                { "title": "Sweep the floor", "done": true },
+                { "title": "History Homework", "description": "ABCSS Prelim 2022 Paper 1 Timed Practice", "done": false },
+            ]
+        }
+    }
+    constructor() {
+        this.loadItems();
+    }
+    
     get items() {
         if (this.filter === "all") {
             return this.allItems;
@@ -22,17 +44,28 @@ export class TaskComponent {
             this.filter === "done" ? item.done : !item.done
         );
     }
+
+    saveItems() {
+        try {
+            localStorage.setItem("items", JSON.stringify(this.allItems));
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
     addItem(title: string, description: string = "") {
         this.allItems.unshift({
             title,
             description,
             done: false
         });
+        this.saveItems();
     }
 
     deleteItem(title: string) {
         const index = this.allItems.findIndex((item) => item.title === title);
         this.allItems.splice(index, 1);
+        this.saveItems();
     }
 
     updateItem(initialTitle: string, title?: string, description?: string) {
@@ -44,6 +77,7 @@ export class TaskComponent {
         if (description) {
             item.description = description;
         }
+        this.saveItems();
     }
 
     toggleCompleted($event:any, title: string) {
@@ -61,6 +95,7 @@ export class TaskComponent {
         } else {
             console.log('parentDiv not found');
         }
+        this.saveItems();
     }
 
     isCompleted(title: string) {
