@@ -36,6 +36,9 @@ div.task a.edit-link {
 div.task.completed {
     opacity: 50%;
 }
+div.hide-completed div.task.completed {
+    display: none;
+}
 div#create {
     width: min(600px, 60vw);
     display: flex;
@@ -57,4 +60,9 @@ div#create button {
     display: block;
     cursor: pointer;
     border: none;
+}
+div.tasklist .completed {
+    background-color: red;
+    font-family: Courier New;
+    display: none;
 }

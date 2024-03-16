@@ -1,4 +1,4 @@
-<div class="lmao">
+<div class="tasklist">
     <!-- <div class="task">
         <div class="top-row">
             <a href="history_homework.html" class="edit-link">
@@ -9,8 +9,6 @@
         <hr>
         <p>ABCSS Prelim 2022 Paper 1 Timed Practice</p>
     </div> -->
-    <app-task/>
-    <app-task/>
     <app-task/>
     <!-- <div class="completed task">
         <div class="top-row">
@@ -27,3 +25,11 @@
         <button>Create</button>
     </div>    
 </div>
+<!-- 
+<div *ngFor="let task of [tasklist]" [task]="task">
+    <app-task
+    [title]="task.title"
+    [description]="task.description"
+    />
+    
+</div> -->

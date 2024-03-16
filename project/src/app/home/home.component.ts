@@ -9,5 +9,10 @@ import { TaskComponent } from '../task/task.component';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-
+  tasklist = [
+    {
+      title: 'First task',
+      description: 'My first task!'
+    }
+  ];
 }

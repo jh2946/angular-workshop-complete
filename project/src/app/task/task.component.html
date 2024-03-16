@@ -1,10 +1,10 @@
-<div class="task">
+<div class="task hahaha" [ngClass]="{'completed': isChecked}">
     <div class="top-row">
         <a href="history_homework.html" class="edit-link">
-            <h2>{{ title }}</h2>
+            <h2>Hello</h2>
         </a>
-        <input class="task-checkbox" type="checkbox">
+        <input class="task-checkbox" type="checkbox" (click)="toggle($event)">
     </div>
     <hr>
-    <p>ABCSS Prelim 2022 Paper 1 Timed Practice</p>
+    <p>{{ description }}</p>
 </div>
