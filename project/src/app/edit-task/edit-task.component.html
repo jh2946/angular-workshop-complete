@@ -1,4 +1,11 @@
-<h2>History Homework</h2>
-<label for="description">Edit description</label>
-<textarea name="description" cols="30" rows="5">ABCSS Prelim 2022 Paper 1 Timed Practice</textarea>
-<button>Save</button>
+<ng-container *ngIf="checkIfItemExists(title); then edit else notfound">
+</ng-container>
+<ng-template #edit>
+    <h2>{{ task.title }}</h2>
+    <label for="description">Edit description</label>
+    <textarea #descriptionInput cols="30" rows="5">{{ task.description }}</textarea>
+    <button (click)="updateItem(descriptionInput.value)">Save</button>
+</ng-template>
+<ng-template #notfound>
+    <h2>Todo item not found</h2>
+</ng-template>

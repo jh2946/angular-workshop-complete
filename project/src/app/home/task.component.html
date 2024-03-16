@@ -6,5 +6,10 @@
         <input [checked]="todoItem.done" class="task-checkbox" type="checkbox" (click)="toggleCompleted($event, todoItem.title)">
     </div>
     <hr>
-    <p>{{todoItem.description}}</p>
+    <div class="bottom-row">
+        <p>{{todoItem.description}}</p>
+        <!-- <button class="edit" (click)="navigateToEdit(todoItem.title)">Edit</button> -->
+        <button class="edit"><a [routerLink]="['/edit', todoItem.title]">Edit</a></button>
+        <button class="delete" (click)="deleteItem(todoItem.title)">Delete</button>
+    </div>
 </div>

@@ -1,17 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-
+import { Router, RouterModule } from '@angular/router';
 @Component({
     selector: 'app-tasks',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, RouterModule],
     templateUrl: './task.component.html',
     styleUrl: './task.component.css'
 })
 export class TaskComponent {
-    filter: "all" | "active" | "done" = "all";
+    // filter: "all" | "active" | "done" = "all";
     allItems: { title: string, description?: string, done: boolean }[] = [];
-    localStorage = document.defaultView?.localStorage;
     // todo: create a constructor to get allitems from localstorage. if it does not exist, create one
     private loadItems() {
         try {
@@ -32,17 +31,12 @@ export class TaskComponent {
             ]
         }
     }
-    constructor() {
+    constructor(private router: Router) {
         this.loadItems();
     }
     
     get items() {
-        if (this.filter === "all") {
-            return this.allItems;
-        }
-        return this.allItems.filter((item) =>
-            this.filter === "done" ? item.done : !item.done
-        );
+        return this.allItems;
     }
 
     saveItems() {
@@ -68,12 +62,16 @@ export class TaskComponent {
         this.saveItems();
     }
 
-    updateItem(initialTitle: string, title?: string, description?: string) {
+    // navigateToEdit(title: string) {
+    //     this.router.navigate(['/edit', title]);
+    // } bad. use routerLink
+
+    updateItem(initialTitle: string, description?: string) {
         const index = this.allItems.findIndex((item) => item.title === initialTitle);
         const item = this.allItems[index];
-        if (title) {
-            item.title = title;
-        }
+        // if (title) {
+        //     item.title = title;
+        // }
         if (description) {
             item.description = description;
         }
@@ -81,6 +79,7 @@ export class TaskComponent {
     }
 
     toggleCompleted($event:any, title: string) {
+        // toggle in database
         const index = this.allItems.findIndex((item) => item.title === title);
         if (this.allItems[index].done == true) {
             this.allItems[index].done = false;
@@ -88,6 +87,7 @@ export class TaskComponent {
             this.allItems[index].done = true; // yeah I know
         }
 
+        // toggle in view
         const parentDiv = $event.target.closest('.task');
         // console.log(parentDiv)
         if (parentDiv) {
@@ -103,22 +103,22 @@ export class TaskComponent {
         return this.allItems[index].done;
     }
 
-    @Output() itemAdded = new EventEmitter<{ title: string, description: string }>();
+    // @Output() itemAdded = new EventEmitter<{ title: string, description: string }>();
     onCreateClick(title: string, description: string) {
         this.addItem(title, description);
-        this.itemAdded.emit({ title, description });
+        // this.itemAdded.emit({ title, description });
     }
 
-    @Output() itemDeleted = new EventEmitter<string>();
+    // @Output() itemDeleted = new EventEmitter<string>();
     onDeleteClick(title: string) {
         this.deleteItem(title);
-        this.itemDeleted.emit(title);
+        // this.itemDeleted.emit(title);
     }
 
-    @Output() itemUpdated = new EventEmitter<{ initialTitle: string, title?: string, description?: string }>();
+    // @Output() itemUpdated = new EventEmitter<{ initialTitle: string, title?: string, description?: string }>();
     onUpdateClick(initialTitle: string, title?: string, description?: string) {
-        this.updateItem(initialTitle, title, description);
-        this.itemUpdated.emit({ initialTitle, title, description });
+        this.updateItem(initialTitle, description);
+        // this.itemUpdated.emit({ initialTitle, title, description });
     }
 
     @Input() hideCompleted = false;
