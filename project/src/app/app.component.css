@@ -29,3 +29,23 @@ header.navbar a.navlink:hover {
 div.content {
     padding: 100px 15vw;
 }
+
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/inter/v13/UcCo3FwrK3iLTfvlaQc78lA2.ttf)
+      format("truetype");
+}
+  
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 800;
+    src: url(https://fonts.gstatic.com/s/inter/v13/UcCo3FwrK3iLTfvlaQc78lA2.ttf)
+      format("truetype");
+}
+
+* {
+    font-family: "Inter"
+}

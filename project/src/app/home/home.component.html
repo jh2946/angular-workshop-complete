@@ -1,4 +1,10 @@
-<app-tasks></app-tasks>
+<div id="toggleHidingCompleted">
+    <input type="checkbox" (change)="onToggleHidingCompleted()">
+    <label>Hide completed tasks</label>
+</div>
+<div id="tasks">
+    <app-tasks/>
+</div>
 <div id="create">
   <input type="text" placeholder="New task" #newTaskTitle>
   <input type="text" placeholder="Description" #newTaskDescription>

@@ -11,8 +11,16 @@ import { TaskComponent } from './task.component';
 })
 export class HomeComponent {
   @ViewChild(TaskComponent) taskComponent!: TaskComponent;
+  onToggleHidingCompleted() {
+    document.getElementById("tasks")!.classList.toggle("hide-completed");
+    this.taskComponent.hideCompleted = !this.taskComponent.hideCompleted;
+  }
 
   onCreateClick(title: string, description: string) {
     this.taskComponent.addItem(title, description);
+  }
+
+  onDeleteClick(index: number) {
+    this.taskComponent.allItems.splice(index, 1);
   }
 }
