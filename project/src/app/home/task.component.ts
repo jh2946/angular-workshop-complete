@@ -11,7 +11,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class TaskComponent {
     filter: "all" | "active" | "done" = "all";
     allItems = [
-        { "title": "Sweep the floor", "status": "completed" },
+        { "title": "Sweep the floor", "done": true }, // todo: fix this being opposite if done is initially true
         { "title": "History Homework", "description": "ABCSS Prelim 2022 Paper 1 Timed Practice", "done": false },
     ]
     get items() {
@@ -61,6 +61,11 @@ export class TaskComponent {
         } else {
             console.log('parentDiv not found');
         }
+    }
+
+    isCompleted(title: string) {
+        const index = this.allItems.findIndex((item) => item.title === title);
+        return this.allItems[index].done;
     }
 
     @Output() itemAdded = new EventEmitter<{ title: string, description: string }>();

@@ -1,9 +1,9 @@
-<div class="task" *ngFor="let todoItem of items">
+<div class="task" [ngClass]="{ 'completed': isCompleted(todoItem.title), 'hidden': hideCompleted && isCompleted(todoItem.title) }" *ngFor="let todoItem of items">
     <div class="top-row">
         <a href="history_homework.html" class="edit-link">
             <h2>{{todoItem.title}}</h2>
         </a>
-        <input class="task-checkbox" type="checkbox" (click)="toggleCompleted($event, todoItem.title)">
+        <input [checked]="todoItem.done" class="task-checkbox" type="checkbox" (click)="toggleCompleted($event, todoItem.title)">
     </div>
     <hr>
     <p>{{todoItem.description}}</p>

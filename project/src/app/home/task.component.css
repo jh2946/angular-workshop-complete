@@ -32,7 +32,6 @@ div.task a.edit-link {
 div.task.completed {
     opacity: 50%;
 }
-
-div.hide-complete div.task.completed {
-    opacity: 0%;
+.hidden {
+    display: none;
 }

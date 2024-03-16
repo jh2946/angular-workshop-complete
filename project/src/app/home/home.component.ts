@@ -7,12 +7,12 @@ import { TaskComponent } from './task.component';
   standalone: true,
   imports: [CommonModule, TaskComponent],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
 })
 export class HomeComponent {
   @ViewChild(TaskComponent) taskComponent!: TaskComponent;
   onToggleHidingCompleted() {
-    document.getElementById("tasks")!.classList.toggle("hide-completed");
+    // document.getElementById("tasks")!.classList.toggle("hidecompleted");
     this.taskComponent.hideCompleted = !this.taskComponent.hideCompleted;
   }
 
