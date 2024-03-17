@@ -41,16 +41,27 @@ div.hide-completed div.task.completed {
 }
 div#create {
     width: min(600px, 60vw);
+    margin: 0 auto;
+}
+div#title-input-row {
     display: flex;
     justify-content: space-between;
-    margin: 0 auto;
     margin-top: 30px;
+
 }
 div#create input[type="text"] {
     padding: 0.5em;
     font: inherit;
     width: calc(min(600px, 60vw) - 100px);
     display: block;
+}
+div#create textarea {
+    padding: 0.5em;
+    box-sizing: border-box;
+    width: 100%;
+    font: inherit;
+    resize: none;
+    margin-top: 15px;
 }
 div#create button {
     padding: 0.5em;

@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-task',
@@ -9,10 +9,27 @@ import { Component, Input } from '@angular/core';
   styleUrl: './task.component.css'
 })
 export class TaskComponent {
-  @Input() title = '';
+
+  @Input() id = -1;
+  @Input() title = 'New Task';
   @Input() description = '';
-  isChecked = false;
-  toggle($event: any) {
-    this.isChecked = !this.isChecked
+  @Input() isChecked = true;
+
+  @Output() changeEvent = new EventEmitter();
+
+  doneOrNot(event: any) {
+    this.isChecked = event.currentTarget.checked;
+    console.log('here');
+    this.updateParent();
   }
+
+  updateParent() {
+    this.changeEvent.emit({
+      id: this.id, 
+      title: this.title,
+      description: this.description,
+      isChecked: this.isChecked
+    });
+  }
+
 }
