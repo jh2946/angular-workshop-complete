@@ -33,7 +33,7 @@ div.task div.button-row {
 div.button-row > * {
     height: 70%;
     display: block;
-    margin-left: 5px;
+    margin-left: 10px;
     cursor: pointer;
 }
 div.task input[type="checkbox"].task-checkbox {
