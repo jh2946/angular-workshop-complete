@@ -11,17 +11,11 @@ import { NgFor } from '@angular/common';
 })
 export class HomeComponent {
 
-  tasklist: any[] = [
-    {
-      title: 'First task',
-      description: 'My first task!',
-      isChecked: false
-    }
-  ];
+  tasklist: any[] = [];
 
   ngOnInit() {
     if (typeof window !== 'undefined' && window.localStorage)
-      this.tasklist = JSON.parse(localStorage['tasklist'] ?? '[]');
+      this.tasklist = JSON.parse(localStorage['tasklist'] ?? '[]'); // 
   }
 
   addTask(title: string, description: string) {
@@ -35,11 +29,8 @@ export class HomeComponent {
 
   update(data: any) {
     const id = data.id;
-    this.tasklist[id] = {
-      title: data.title,
-      description: data.description,
-      isChecked: data.isChecked
-    };
+    const updatedTask = this.tasklist[id];
+    updatedTask.isChecked = data.isChecked;
     this.save();
   }
 

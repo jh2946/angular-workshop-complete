@@ -25,9 +25,7 @@ export class TaskComponent {
 
   updateParent() {
     this.changeEvent.emit({
-      id: this.id, 
-      title: this.title,
-      description: this.description,
+      id: this.id,
       isChecked: this.isChecked
     });
   }
