@@ -14,8 +14,9 @@ export class HomeComponent {
   tasklist: any[] = [];
 
   ngOnInit() {
-    if (typeof window !== 'undefined' && window.localStorage)
-      this.tasklist = JSON.parse(localStorage['tasklist'] ?? '[]'); // 
+    // check if code is running on client-side, then check if tasklist is already in storage
+    if (typeof window !== 'undefined' && window.localStorage['tasklist'])
+      this.tasklist = JSON.parse(localStorage['tasklist']); // 
   }
 
   addTask(title: string, description: string) {

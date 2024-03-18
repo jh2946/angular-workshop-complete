@@ -23,9 +23,29 @@ div.task div.top-row {
     height: 30px;
     align-items: center;
 }
-div.task input[type="checkbox"].task-checkbox {
+div.task div.button-row {
+    height: 30px;
+    align-items: center;
+    display: flex;
+    box-sizing: border-box;
+    border: none;
+}
+div.button-row > * {
     height: 70%;
+    display: block;
+    margin-left: 5px;
+    cursor: pointer;
+}
+div.task input[type="checkbox"].task-checkbox {
     aspect-ratio: 1/1;
+}
+div.task button.task-delete {
+    border: none;
+    padding: 0;
+    background-color: transparent;
+}
+div.task button.task-delete img {
+    height: 100%;
 }
 div.task a.edit-link {
     text-decoration: none;
