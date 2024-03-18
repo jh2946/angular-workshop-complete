@@ -4,6 +4,7 @@
             <h2>{{ title }}</h2>
         </a>
         <input class="task-checkbox" type="checkbox" [checked]="isChecked" (click)="doneOrNot($event)">
+        <button class="edit"><a [routerLink]="['/edit', title]">Edit</a></button>
     </div>
     <hr>
     <p>{{ description }}</p>
