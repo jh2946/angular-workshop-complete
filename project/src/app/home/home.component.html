@@ -6,6 +6,7 @@
         [description]="task.description"
         [isChecked]="task.isChecked"
         (changeEvent)="update($event)"
+        (deleteEvent)="delete($event)"
         />
     </div>
     <div id="create">

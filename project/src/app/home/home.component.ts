@@ -34,6 +34,11 @@ export class HomeComponent {
     this.save();
   }
 
+  delete(data: any) {
+    this.tasklist.splice(data.id, 1);
+    this.save();
+  }
+  
   save() {
     localStorage['tasklist'] = JSON.stringify(this.tasklist);
   }

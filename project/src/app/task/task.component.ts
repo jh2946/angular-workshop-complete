@@ -17,7 +17,7 @@ export class TaskComponent {
   @Input() isChecked = true;
 
   @Output() changeEvent = new EventEmitter();
-
+  @Output() deleteEvent = new EventEmitter();
   doneOrNot(event: any) {
     this.isChecked = event.currentTarget.checked;
     console.log('here');
@@ -31,4 +31,9 @@ export class TaskComponent {
     });
   }
 
+  deleteItem() {
+    this.deleteEvent.emit({
+      id: this.id
+    })
+  }
 }
