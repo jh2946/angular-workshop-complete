@@ -5,7 +5,7 @@
         </a>
         <div class="button-row">
             <button class="task-delete" (click)="deleteItem()"><img src="assets/close.png" alt=""></button>
-            <input class="task-checkbox" type="checkbox" [checked]="isChecked" [(ngModel)]="isChecked">
+            <input class="task-checkbox" type="checkbox" [checked]="isChecked" (click)="doneOrNot($event)">
         </div>
     </div>
     <hr>

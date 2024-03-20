@@ -1,12 +1,11 @@
 import { NgClass } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { NgModel } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-task',
   standalone: true,
-  imports: [NgClass, NgModel, RouterLink],
+  imports: [NgClass, RouterLink],
   templateUrl: './task.component.html',
   styleUrl: './task.component.css'
 })
@@ -22,11 +21,6 @@ export class TaskComponent {
   
   doneOrNot(event: any) {
     this.isChecked = event.currentTarget.checked;
-    console.log('here');
-    this.updateParent();
-  }
-
-  updateParent() {
     this.changeEvent.emit({
       id: this.id,
       isChecked: this.isChecked
