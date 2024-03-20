@@ -12,9 +12,9 @@ import { RouterLink } from '@angular/router';
 export class TaskComponent {
 
   @Input() id = -1;
-  @Input() title = 'New Task';
+  @Input() title = '';
   @Input() description = '';
-  @Input() isChecked = true;
+  @Input() isChecked = false;
 
   @Output() changeEvent = new EventEmitter();
   @Output() deleteEvent = new EventEmitter();
