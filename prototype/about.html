@@ -6,11 +6,14 @@
     <style>
 
 
-        /*  navbar styles  */
+        /* everything */
         html, body {
             margin: 0;
             font-family: Lato;
         }
+
+
+        /*  navbar styles  */
         header.navbar {
             background-color: #ddf;
             display: flex;
@@ -38,12 +41,56 @@
         header.navbar a.navlink:hover {
             background-color: #00f3;
         }
+        div.content {
+            padding: 100px 15vw;
+        }
 
 
         /*  task list styles  */
         div.content {
             padding: 100px 15vw;
         }
+        div#create {
+            width: min(600px, 60vw);
+            margin: 0 auto;
+        }
+        div#title-input-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+
+        }
+        div#create input[type="text"] {
+            padding: 0.5em;
+            font: inherit;
+            width: calc(min(600px, 60vw) - 100px);
+            display: block;
+        }
+        div#create textarea {
+            padding: 0.5em;
+            box-sizing: border-box;
+            width: 100%;
+            font: inherit;
+            resize: none;
+            margin-top: 15px;
+        }
+        div#create button {
+            padding: 0.5em;
+            font: inherit;
+            background-color: #0d6efd;
+            color: white;
+            display: block;
+            cursor: pointer;
+            border: none;
+        }
+        div.tasklist .completed {
+            background-color: red;
+            font-family: Courier New;
+            display: none;
+        }
+
+
+        /* task styles */
         div.task {
             border: 2px black solid;
             box-sizing: border-box;
@@ -52,7 +99,7 @@
             width: min(600px, 60vw);
             margin: 0 auto;
         }
-        div.task + div.task {
+        div.task {
             margin-top: 30px;
         }
         div.task * {
@@ -65,63 +112,38 @@
         div.task div.top-row {
             display: flex;
             justify-content: space-between;
-            height: 30;
+            height: 30px;
             align-items: center;
         }
-        div.task input[type="checkbox"].task-checkbox {
+        div.task div.button-row {
+            height: 30px;
+            align-items: center;
+            display: flex;
+            box-sizing: border-box;
+            border: none;
+        }
+        div.button-row > * {
             height: 70%;
+            display: block;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        div.task input[type="checkbox"].task-checkbox {
             aspect-ratio: 1/1;
+        }
+        div.task button.task-delete {
+            border: none;
+            padding: 0;
+            background-color: transparent;
+        }
+        div.task button.task-delete img {
+            height: 100%;
         }
         div.task a.edit-link {
             text-decoration: none;
         }
         div.task.completed {
             opacity: 50%;
-        }
-        div#create {
-            width: min(600px, 60vw);
-            display: flex;
-            justify-content: space-between;
-            margin: 0 auto;
-            margin-top: 30px;
-        }
-        div#create input[type="text"] {
-            padding: 0.5em;
-            font: inherit;
-            width: calc(min(600px, 60vw) - 100px);
-            display: block;
-        }
-        div#create button {
-            padding: 0.5em;
-            font: inherit;
-            background-color: #0d6efd;
-            color: white;
-            display: block;
-            cursor: pointer;
-            border: none;
-        }
-
-        
-        /*  task edit styles  */
-        hr {
-            margin-top: 5px;
-            margin-bottom: 10px;
-        }
-        textarea {
-            padding: 0.5em;
-            font: inherit;
-            display: block;
-            width: 100%;
-            margin-bottom: 10px;
-        }
-        button {
-            padding: 0.5em;
-            font: inherit;
-            background-color: #0d6efd;
-            color: white;
-            display: block;
-            cursor: pointer;
-            border: none;
         }
 
 
