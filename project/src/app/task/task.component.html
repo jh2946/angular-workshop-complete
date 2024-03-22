@@ -1,8 +1,6 @@
 <div class="task" [ngClass]="{'completed': isChecked}">
     <div class="top-row">
-        <a href="history_homework.html" class="edit-link">
-            <h2>{{ title }}</h2>
-        </a>
+        <h2>{{ title }}</h2>
         <div class="button-row">
             <button class="task-delete" (click)="deleteItem()"><img src="assets/close.png" alt=""></button>
             <input class="task-checkbox" type="checkbox" [checked]="isChecked" (click)="doneOrNot($event)">
