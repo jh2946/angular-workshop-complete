@@ -20,7 +20,7 @@ The folder structure is as follows:
 
 The folder inside which all Angular files were generated. When building the project, starting from the top level of this repo, type:
 
-```
+```bash
 cd project
 ng serve --open
 ```
