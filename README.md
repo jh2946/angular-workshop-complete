@@ -1,8 +1,18 @@
-(work in progress)
-
 # Angular To-do List (Complete)
 
 This is the complete solution to the NYP DSC 2024 Intro to Angular workshop, project section.
+
+## Setup instructions
+
+To view the project, open this folder in VSCode. Then run:
+
+```bash
+cd project
+npm install
+ng serve --open
+```
+
+## Folder structure
 
 The folder structure is as follows:
 
